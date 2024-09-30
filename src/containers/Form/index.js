@@ -38,6 +38,7 @@ const Form = ({ onSuccess, onError }) => {
           />
           <Field placeholder="" label="Email" />
           <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}>
+            onclick={() => onSuccess}
             {sending ? "En cours" : "Envoyer"}
           </Button>
         </div>
