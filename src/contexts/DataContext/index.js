@@ -7,7 +7,13 @@ import {
   useState,
 } from "react";
 
-const DataContext = createContext({});
+const DataContext = createContext({
+  last: {
+    cover: "",
+    title: "",
+    date: ""
+  }
+});
 
 export const api = {
   loadData: async () => {
