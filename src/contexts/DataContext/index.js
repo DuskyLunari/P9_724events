@@ -36,17 +36,23 @@ export const DataProvider = ({ children }) => {
     if (data) return;
     getData();
   });
-  
+
   return (
     <DataContext.Provider
       // eslint-disable-next-line react/jsx-no-constructed-context-values
       value={{
         data,
         error,
+        last:
+          data && data.events
+            ? data.events.sort((evtA, evtB) =>
+              new Date(evtA.date) - new Date(evtB.date)
+            )[data.events.length - 1]
+            : {},
       }}
     >
       {children}
-    </DataContext.Provider>
+    </DataContext.Provider >
   );
 };
 
